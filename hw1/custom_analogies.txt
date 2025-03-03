@@ -1,0 +1,7 @@
+: custom-analogies
+france paris italy rome
+france paris japan tokyo
+france paris florida tallahassee
+big bigger small smaller
+big bigger cold colder
+big bigger quick quicker
