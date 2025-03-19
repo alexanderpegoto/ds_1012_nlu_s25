@@ -12,8 +12,11 @@ from transformers import BertTokenizerFast, BertForSequenceClassification, \
     Trainer, TrainingArguments, EvalPrediction
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> upstream/main
 def preprocess_dataset(dataset: Dataset, tokenizer: BertTokenizerFast) \
         -> Dataset:
     """
@@ -25,6 +28,7 @@ def preprocess_dataset(dataset: Dataset, tokenizer: BertTokenizerFast) \
     :param dataset: A dataset
     :param tokenizer: A tokenizer
     :return: The dataset, prepreprocessed using the tokenizer
+<<<<<<< HEAD
 
     Requirements:
     1. All input texts should be tokenized.
@@ -41,6 +45,11 @@ def preprocess_dataset(dataset: Dataset, tokenizer: BertTokenizerFast) \
             truncation = True)
 
     return dataset.map(tokenize_function, batched=True)
+=======
+    """
+    raise NotImplementedError("Problem 1d has not been completed yet!")
+
+>>>>>>> upstream/main
 
 def init_model(trial: Any, model_name: str, use_bitfit: bool = False) -> \
         BertForSequenceClassification:
@@ -61,6 +70,7 @@ def init_model(trial: Any, model_name: str, use_bitfit: bool = False) -> \
         than bias terms
     :return: A newly initialized pre-trained Transformer classifier
     """
+<<<<<<< HEAD
     model = BertForSequenceClassification.from_pretrained(model_name,num_labels=2)
 
     if use_bitfit:
@@ -73,6 +83,10 @@ def init_model(trial: Any, model_name: str, use_bitfit: bool = False) -> \
         print(f"{name}: requires_grad={param.requires_grad}")
 
     return model
+=======
+    raise NotImplementedError("Problem 2a has not been completed yet!")
+
+>>>>>>> upstream/main
 
 def init_trainer(model_name: str, train_data: Dataset, val_data: Dataset,
                  use_bitfit: bool = False) -> Trainer:
@@ -91,6 +105,7 @@ def init_trainer(model_name: str, train_data: Dataset, val_data: Dataset,
         than bias terms
     :return: A Trainer used for training
     """
+<<<<<<< HEAD
     accuracy_metric = evaluate.load('accuracy')
 
     print(f"BitFit: {use_bitfit}")
@@ -123,6 +138,9 @@ def init_trainer(model_name: str, train_data: Dataset, val_data: Dataset,
     return trainer
 
 
+=======
+    raise NotImplementedError("Problem 2b has not been completed yet!")
+>>>>>>> upstream/main
 
 
 def hyperparameter_search_settings() -> Dict[str, Any]:
@@ -135,6 +153,7 @@ def hyperparameter_search_settings() -> Dict[str, Any]:
 
     :return: Keyword arguments for Trainer.hyperparameter_search
     """
+<<<<<<< HEAD
     search_space = {
             "batch_size": [8, 16, 32, 64, 128],
             "learning_rate": [5e-5, 1e-4, 3e-4, 3e-5],
@@ -158,6 +177,9 @@ def hyperparameter_search_settings() -> Dict[str, Any]:
     }
 
 
+=======
+    raise NotImplementedError("Problem 2c has not been completed yet!")
+>>>>>>> upstream/main
 
 
 if __name__ == "__main__":  # Use this script to train your model
@@ -179,7 +201,11 @@ if __name__ == "__main__":  # Use this script to train your model
 
     # Set up trainer
     trainer = init_trainer(model_name, imdb["train"], imdb["val"],
+<<<<<<< HEAD
                            use_bitfit=False)
+=======
+                           use_bitfit=True)
+>>>>>>> upstream/main
 
     # Train and save the best hyperparameters
     best = trainer.hyperparameter_search(**hyperparameter_search_settings())

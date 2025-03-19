@@ -23,6 +23,7 @@ def init_tester(directory: str) -> Trainer:
         saved
     :return: A Trainer used for testing
     """
+<<<<<<< HEAD
     # Load accuracy metric
     accuracy_metric = evaluate.load('accuracy')
     # Function to compute accuracy
@@ -54,6 +55,9 @@ def init_tester(directory: str) -> Trainer:
     )
 
     return tester
+=======
+    raise NotImplementedError("Problem 2b has not been completed yet!")
+>>>>>>> upstream/main
 
 
 if __name__ == "__main__":  # Use this script to test your model
@@ -69,7 +73,11 @@ if __name__ == "__main__":  # Use this script to test your model
     imdb["test"] = preprocess_dataset(imdb["test"], tokenizer)
 
     # Set up tester
+<<<<<<< HEAD
     tester = init_tester("checkpoints/run-1/checkpoint-10000")
+=======
+    tester = init_tester("path_to_your_best_model")
+>>>>>>> upstream/main
 
     # Test
     results = tester.predict(imdb["test"])
